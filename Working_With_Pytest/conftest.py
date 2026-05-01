@@ -1,12 +1,13 @@
 import pytest
 import requests
 
+
 @pytest.fixture()
 def new_post_id():
     headers = {
         "Content-Type": "application/json",
     }
-    body = {"title": "test","body": "test","userId": 1}
+    body = {"title": "test", "body": "test", "userId": 1}
     response = requests.post(
         headers=headers,
         json=body,

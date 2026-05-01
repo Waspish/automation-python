@@ -12,7 +12,7 @@ db = mysql.connect(
     database='st-onl'
 )
 
-cursor_inst= db.cursor(dictionary=True)
+cursor_inst = db.cursor(dictionary=True)
 
 cursor_inst.execute('SELECT * FROM books order by id DESC LIMIT 2')
 print(cursor_inst.fetchall())

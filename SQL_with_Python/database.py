@@ -71,7 +71,8 @@ db = mysql.connect(
     database='st-onl'
 )
 
-cursor_inst= db.cursor(dictionary=True)
+cursor_inst = db.cursor(dictionary=True)
+
 
 def insert_into_students(cursor, name, second_name):
     insert_students_query = "INSERT INTO students (group_id ,name, second_name) VALUES (NULL, %s, %s)"
@@ -82,13 +83,13 @@ def insert_into_students(cursor, name, second_name):
     return student_id
 
 
-
 books = ['Lord Of The Rings', 'Two Towers']
 student_id = insert_into_students(cursor_inst, 'Andrei', 'Astapenka')
 insert_books_query = "INSERT INTO books (title, taken_by_student_id) VALUES (%s, %s)"
-cursor_inst.executemany(insert_books_query, [(books[0], student_id),(books[1], student_id)])
+cursor_inst.executemany(insert_books_query, [(books[0], student_id), (books[1], student_id)])
 cursor_inst.execute('SELECT * FROM books order by id DESC LIMIT 2')
 rows = cursor_inst.fetchall()
+
 
 def insert_into_groups(cursor, title, start_date, end_date):
     insert_groups_query = "INSERT INTO `groups` (title, start_date, end_date) VALUES (%s, %s, %s)"
@@ -98,8 +99,10 @@ def insert_into_groups(cursor, title, start_date, end_date):
     group_id = cursor.fetchone().get('id')
     return group_id
 
+
 group_id = insert_into_groups(cursor_inst, 'Team C', '22.07.2001', '22.07.2002')
 print(group_id)
+
 
 def update_students_group(cursor, group_id, student_id):
     update_students_group_query = "UPDATE students SET group_id = %s WHERE `id` = %s"

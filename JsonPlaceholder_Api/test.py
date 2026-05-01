@@ -2,6 +2,7 @@ import random
 
 import requests
 
+
 def get_all_posts():
     response = requests.get("https://jsonplaceholder.typicode.com/posts")
     print(response.json())
@@ -24,6 +25,7 @@ def create_post():
 
     return response.json()['id']
 
+
 def put_post():
     changed_title = "TEST2"
     post_id = create_post()
@@ -41,9 +43,10 @@ def put_post():
     assert response.status_code == 200
     assert response.json()['title'] == changed_title
 
+
 get_all_posts()
 
 put_post()
 
-mas = [random.randint(1,5) for _ in range(10)]
+mas = [random.randint(1, 5) for _ in range(10)]
 print(mas)
