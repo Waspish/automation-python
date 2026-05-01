@@ -1,3 +1,5 @@
+import random
+
 import requests
 
 def get_all_posts():
@@ -22,7 +24,7 @@ def create_post():
 
     return response.json()['id']
 
-def test_put_post():
+def put_post():
     changed_title = "TEST2"
     post_id = create_post()
     headers = {
@@ -41,5 +43,7 @@ def test_put_post():
 
 get_all_posts()
 
-test_put_post()
+put_post()
 
+mas = [random.randint(1,5) for _ in range(10)]
+print(mas)
