@@ -70,11 +70,16 @@ SELECT title FROM books WHERE taken_by_student_id = <student_id>
 Используйте JOIN для связывания таблиц.
 Выведите полученные строки.
 """
+import os
+
+import dotenv
 from mysql import connector as mysql
+
+dotenv.load_dotenv()
 
 db = mysql.connect(
     user='st-onl',
-    passwd='AVNS_tegPDkI5BlB2lW5eASC',
+    passwd=os.getenv('DB_PASSWD'),
     host='db-mysql-fra1-09136-do-user-7651996-0.b.db.ondigitalocean.com',
     port=25060,
     database='st-onl'

@@ -4,7 +4,7 @@ import requests
 
 
 def get_all_posts():
-    response = requests.get("https://jsonplaceholder.typicode.com/posts")
+    response = reques.tsget("https://jsonplaceholder.typicode.com/posts")
     print(response.json())
 
 
